@@ -1,5 +1,5 @@
 <?php
-$module_id = 'mycompany.empty_module';
+$module_id = 'mycompany.emptymodule';
 $RIGHT_R = $RIGHT_W = $USER->IsAdmin();
 if ($RIGHT_W || $RIGHT_R)
 {
