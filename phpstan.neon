@@ -1,0 +1,17 @@
+parameters:
+    level: 6
+    paths:
+        - mycompany.emptymodule/lib
+        - mycompany.emptymodule/install
+    excludePaths:
+        - mycompany.emptymodule/lib/Tools/Helper/Ids.php  # legacy, deprecated
+    treatPhpDocTypesAsCertain: false
+    inferPrivatePropertyTypeFromConstructor: true
+    bootstrapFiles:
+        - tests/bootstrap.php
+    symfony:
+        containerXmlPath: null
+includes:
+    - vendor/phpstan/phpstan/conf/configurable.neon
+    - vendor/phpstan/phpstan-bitrix/extension.neon
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon

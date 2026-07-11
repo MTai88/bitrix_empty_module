@@ -1,0 +1,49 @@
+{
+    "name": "mycompany/empty-module",
+    "description": "Scaffold (заготовка) для кастомных модулей Bitrix24 на D7.",
+    "type": "bitrix-module",
+    "license": "MIT",
+    "keywords": ["bitrix", "bitrix24", "module", "scaffold", "d7"],
+
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "ext-curl": "*"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.10",
+        "phpstan/phpstan-bitrix": "^1.2",
+        "friendsofphp/php-cs-fixer": "^3.40",
+        "squizlabs/php_codesniffer": "^3.7",
+        "phpunit/phpunit": "^10.5",
+        "vimeo/psalm": "^5.18"
+    },
+    "suggest": {
+        "psr/log": "Уже есть в Bitrix, но в composer-окружении пригодится"
+    },
+
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix --config=.php-cs-fixer.dist.php",
+        "cs-check": "php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",
+        "phpstan": "phpstan analyse --configuration=phpstan.neon",
+        "phpstan-baseline": "phpstan analyse --configuration=phpstan.neon --generate-baseline=phpstan-baseline.neon",
+        "psalm": "psalm --no-cache",
+        "test": "phpunit"
+    },
+
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+
+    "support": {
+        "issues": "https://example.com/issues",
+        "source": "https://example.com/git"
+    },
+
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

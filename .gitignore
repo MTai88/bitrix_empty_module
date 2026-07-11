@@ -1,0 +1,44 @@
+# .gitignore для модуля mycompany.emptymodule
+# ============================================================
+# Применимо и к корню репозитория, и к папке mycompany.emptymodule/
+
+# ----- runtime / артефакты сборки -----
+/vendor/
+/composer.lock
+.phpunit.result.cache
+.phpunit.cache/
+.php-cs-fixer.cache
+.php-cs-fixer.cache/
+.phpstan.cache/
+phpstan-baseline.neon
+.psalm/
+.psalm-cache/
+build/
+dist/
+
+# ----- IDE / OS -----
+.idea/
+.vscode/*
+!.vscode/launch.json
+!.vscode/settings.json
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ----- Логи модуля (внутри /bitrix/modules/<MODULE_ID>/logs/) -----
+/bitrix/modules/*/logs/*.log
+/upload/*/logs/*.log
+
+# ----- Кеши и временные файлы Bitrix (НЕ коммитим случайно) -----
+/bitrix/cache/
+/upload/
+/cache/
+
+# ----- Секреты и локальные конфиги (если есть в репе) -----
+.env
+.env.local
+*.local.yaml
+*.local.php
+secrets.json
