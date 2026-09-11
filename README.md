@@ -18,8 +18,7 @@
 - используют современные подходы — контроллеры `\Bitrix\Main\Engine\Controller`,
   ORM `\Bitrix\Main\ORM\Entity`, агенты, тегированные обработчики;
 - разворачиваются в `/local/modules/` (не в `/bitrix/modules/`);
-- должны работать в связке с локальным dev-стендом `docker_bitrix24`
-  ([см. заметку Obsidian → Bitrix24 Docker](file:///C:/Users/user/Documents/Obsidian%20Vault/Bitrix24%20Docker.md)).
+- должны работать в связке с локальным dev-стендом `docker_bitrix24`.
 
 Под капотом — проверенная структура, которая собирается и устанавливается
 без ручной правки. Берёте, переименовываете через `install.sh`, дописываете
@@ -102,13 +101,6 @@ cd /path/to/repo
 Скопируйте папку `acme.delivery` (или `mycompany.emptymodule`, если не
 переименовали) в `/local/modules/` вашего Битрикса:
 
-```bash
-# Из WSL в bitrix-проект:
-cp -r mycompany.emptymodule /home/dev/projects/<project>/www/local/modules/
-
-# Из Windows PowerShell в C:\WebServer\<project>:
-Copy-Item .\mycompany.emptymodule C:\WebServer\<project>\www\local\modules\ -Recurse
-```
 
 ### 3. Установка через админку
 
@@ -127,8 +119,7 @@ docker exec <container> php /path/to/script.php
 ```
 
 Где `script.php` — кастомный smoke-скрипт, который подключает ядро,
-требует `install/index.php` и вызывает `DoInstall()`. Пример есть в
-[bitrix24_test/scripts/module_check.php](file:///C:/WebServer/bitrix24_test/scripts/module_check.php).
+требует `install/index.php` и вызывает `DoInstall()`. 
 
 ---
 
@@ -446,21 +437,4 @@ docker exec bitrix-test-php-1 composer cs-fix
    при правильной идемпотентности (проверки `isModuleInstalled`,
    `CAgent::GetList`) обновление безопасно.
 
----
 
-## Полезные пути
-
-- `C:\WebServer\bitrix_empty_module\` — этот репозиторий
-- `C:\WebServer\bitrix_empty_module\mycompany.emptymodule\` — сам модуль
-- `C:\WebServer\bitrix24_test\` — локальный dev-стенд Битрикса
-- `\\wsl.localhost\Ubuntu\home\dev\projects\bitrix24_test\www\local\modules\` — путь
-  в WSL, куда Битрикс подгружает кастом-модули
-- `C:\Users\user\Documents\Obsidian Vault\Bitrix24 Docker.md` — заметка про dev-стенд
-- `C:\Users\user\Documents\Obsidian Vault\Bitrix24 Module Scaffold (mycompany.emptymodule).md` —
-  заметка про этот модуль
-
----
-
-## Лицензия
-
-MIT. Используйте как угодно в своих проектах.
